@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 // Set of Material typography styles to start with
-val Typography = Typography(
+val recipeComposeAppTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = montserratAlternatesFontFamily,
         fontWeight = FontWeight.SemiBold,

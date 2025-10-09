@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 // Set of Material typography styles to start with
-val recipeComposeAppTypography = Typography(
+val recipesAppTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = montserratAlternatesFontFamily,
         fontWeight = FontWeight.SemiBold,
@@ -45,7 +45,7 @@ val recipeComposeAppTypography = Typography(
 @Preview(showBackground = true)
 @Composable
 fun TypographyPreview() {
-    RecipeComposeAppTheme {
+    RecipesAppTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Заголовок экрана", style = MaterialTheme.typography.displayLarge)
             Text("Заголовок карточки", style = MaterialTheme.typography.titleMedium)

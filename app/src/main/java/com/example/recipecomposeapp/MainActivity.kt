@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.recipecomposeapp.ui.theme.RecipeComposeAppTheme
+import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            RecipeComposeAppTheme {
+            RecipesAppTheme {
                 Scaffold { innerPadding ->
                     Box(
                         modifier = Modifier
@@ -53,7 +53,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 )
 @Composable
 fun GreetingPreview() {
-    RecipeComposeAppTheme {
+    RecipesAppTheme {
         Greeting("Android")
     }
 }

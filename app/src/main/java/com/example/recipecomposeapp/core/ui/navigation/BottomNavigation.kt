@@ -1,6 +1,8 @@
 package com.example.recipecomposeapp.core.ui.navigation
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -20,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.recipecomposeapp.R
@@ -32,28 +33,28 @@ fun BottomNavigation(
 ) {
     Surface(
         color = MaterialTheme.colorScheme.surface,
-        modifier = Modifier
-            .fillMaxWidth()
-            .navigationBarsPadding()
+        modifier = Modifier.fillMaxWidth()
     ) {
-        Row(
-            modifier = Modifier
-                .height(52.dp)
-                .fillMaxWidth()
-                .padding(16.dp, 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            ButtonNavItem(
-                onClick = onCategoriesClick,
-                text = "Категории",
-                containerColor = MaterialTheme.colorScheme.primary
-            )
-            ButtonNavItem(
-                onClick = onFavoriteClick,
-                text = "Избранное",
-                containerColor = MaterialTheme.colorScheme.secondary,
-                painter = painterResource(id = R.drawable.ic_heart)
-            )
+        Column(Modifier.navigationBarsPadding()) {
+            Row(
+                modifier = Modifier
+                    .height(52.dp)
+                    .fillMaxWidth()
+                    .padding(16.dp, 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                ButtonNavItem(
+                    onClick = onCategoriesClick,
+                    text = "Категории",
+                    containerColor = MaterialTheme.colorScheme.primary
+                )
+                ButtonNavItem(
+                    onClick = onFavoriteClick,
+                    text = "Избранное",
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    iconRes = R.drawable.ic_heart
+                )
+            }
         }
     }
 }
@@ -63,7 +64,7 @@ private fun RowScope.ButtonNavItem(
     onClick: () -> Unit,
     text: String,
     containerColor: Color,
-    painter: Painter? = null,
+    @DrawableRes iconRes: Int? = null
 ) {
     Button(
         onClick = onClick,
@@ -78,10 +79,10 @@ private fun RowScope.ButtonNavItem(
                 text = text.uppercase(),
                 style = MaterialTheme.typography.titleMedium,
             )
-            if (painter != null) {
+            if (iconRes != null) {
                 Spacer(modifier = Modifier.weight(1f))
                 Icon(
-                    painter = painter,
+                    painter = painterResource(id = iconRes),
                     contentDescription = text,
                     modifier = Modifier.size(24.dp)
                 )

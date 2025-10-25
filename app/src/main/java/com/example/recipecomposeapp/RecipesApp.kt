@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.recipecomposeapp.core.ui.navigation.BottomNavigation
+import com.example.recipecomposeapp.ui.categories.CategoriesScreen
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
@@ -42,12 +43,7 @@ fun RecipesApp(darkTheme: Boolean = isSystemInDarkTheme()) {
                     ) { Text("Избранное") }
                 }
                 ScreenId.CATEGORIES -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding),
-                        contentAlignment = Alignment.Center
-                    ) { Text("Категории") }
+                    CategoriesScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }

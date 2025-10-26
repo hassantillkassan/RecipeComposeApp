@@ -43,7 +43,7 @@ fun RecipesApp(darkTheme: Boolean = isSystemInDarkTheme()) {
                     ) { Text("Избранное") }
                 }
                 ScreenId.CATEGORIES -> {
-                    CategoriesScreen(modifier = Modifier.padding(innerPadding))
+                    CategoriesScreen()
                 }
             }
         }

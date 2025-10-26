@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -38,24 +39,30 @@ fun ScreenHeader(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
-        Surface(
+        Box(
             modifier = Modifier
-                .align(Alignment.BottomStart)
-                .padding(start = 16.dp, bottom = 16.dp),
-            shape = RoundedCornerShape(8.dp),
-            color = MaterialTheme.colorScheme.background
+                .fillMaxSize()
+                .statusBarsPadding()
         ) {
-            Text(
-                text = text.uppercase(),
-                modifier = Modifier.padding(10.dp),
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.displayLarge,
-            )
-        }
-        if (isFavorite != null) {
-            IconButton(
-                onClick = onFavoriteClick
-            ) { }
+            Surface(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(start = 16.dp, bottom = 16.dp),
+                shape = RoundedCornerShape(8.dp),
+                color = MaterialTheme.colorScheme.background
+            ) {
+                Text(
+                    text = text.uppercase(),
+                    modifier = Modifier.padding(10.dp),
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.displayLarge,
+                )
+            }
+            if (isFavorite != null) {
+                IconButton(
+                    onClick = onFavoriteClick
+                ) { }
+            }
         }
     }
 }

@@ -13,8 +13,8 @@ import com.example.recipecomposeapp.core.ui.ScreenHeader
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
-fun CategoriesScreen(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxSize()) {
+fun CategoriesScreen() {
+    Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
             text = "Категория",
             backgroundImageRes = R.drawable.bcg_categories,

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ScreenHeader(
-    text: String,
+    title: String,
     @DrawableRes backgroundImageRes: Int,
     modifier: Modifier = Modifier,
     isFavorite: Boolean? = null,
@@ -35,7 +35,7 @@ fun ScreenHeader(
     ) {
         Image(
             painter = painterResource(backgroundImageRes),
-            contentDescription = text,
+            contentDescription = title,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -52,7 +52,7 @@ fun ScreenHeader(
                 color = MaterialTheme.colorScheme.background
             ) {
                 Text(
-                    text = text.uppercase(),
+                    text = title.uppercase(),
                     modifier = Modifier.padding(10.dp),
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.displayLarge,

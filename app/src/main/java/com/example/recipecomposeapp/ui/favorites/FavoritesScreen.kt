@@ -1,4 +1,4 @@
-package com.example.recipecomposeapp.ui.categories
+package com.example.recipecomposeapp.ui.favorites
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,27 +16,27 @@ import com.example.recipecomposeapp.core.ui.ScreenHeader
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
-fun CategoriesScreen(contentPadding: PaddingValues) {
+fun FavoritesScreen(contentPadding: PaddingValues) {
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
-            title = "Категория",
-            backgroundImageRes = R.drawable.bcg_categories,
+            title = "Избранное",
+            backgroundImageRes = R.drawable.bcg_favorites
         )
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(contentPadding),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
-            Text("Список категорий")
+            Text("Список избранных рецептов")
         }
     }
 }
 
 @Preview
 @Composable
-fun CategoriesScreenPreview() {
+fun FavoritesScreenPreview() {
     RecipesAppTheme {
-        CategoriesScreen(PaddingValues(0.dp))
+        FavoritesScreen(PaddingValues(0.dp))
     }
 }

@@ -1,4 +1,4 @@
-package com.example.recipecomposeapp.ui.categories
+package com.example.recipecomposeapp.ui.recipes
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,34 +9,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.recipecomposeapp.R
 import com.example.recipecomposeapp.core.ui.ScreenHeader
-import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
-fun CategoriesScreen(contentPadding: PaddingValues) {
+fun RecipesScreen(contentPadding: PaddingValues) {
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
-            title = "Категория",
-            backgroundImageRes = R.drawable.bcg_categories,
+            title = "Рецепт",
+            backgroundImageRes = R.drawable.bcg_categories
         )
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(contentPadding),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
-            Text("Список категорий")
+            Text("Скоро здесь будет список рецептов")
         }
-    }
-}
-
-@Preview
-@Composable
-fun CategoriesScreenPreview() {
-    RecipesAppTheme {
-        CategoriesScreen(PaddingValues(0.dp))
     }
 }

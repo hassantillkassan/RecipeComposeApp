@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.recipecomposeapp.core.ui.navigation.BottomNavigation
 import com.example.recipecomposeapp.ui.categories.CategoriesScreen
 import com.example.recipecomposeapp.ui.favorites.FavoritesScreen
+import com.example.recipecomposeapp.ui.recipes.RecipesScreen
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
@@ -34,6 +35,9 @@ fun RecipesApp(darkTheme: Boolean = isSystemInDarkTheme()) {
                 }
                 ScreenId.CATEGORIES -> {
                     CategoriesScreen(innerPadding)
+                }
+                ScreenId.RECIPES -> {
+                    RecipesScreen(innerPadding)
                 }
             }
         }

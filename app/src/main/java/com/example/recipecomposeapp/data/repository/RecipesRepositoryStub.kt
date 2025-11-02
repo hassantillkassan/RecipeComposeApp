@@ -5,7 +5,7 @@ import com.example.recipecomposeapp.data.model.CategoryDto
 import com.example.recipecomposeapp.data.model.RecipeDto
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import okio.IOException
+import java.io.IOException
 
 class RecipesRepositoryStub(private val context: Context) {
 

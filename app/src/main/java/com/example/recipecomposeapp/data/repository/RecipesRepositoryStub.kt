@@ -42,7 +42,7 @@ class RecipesRepositoryStub(private val context: Context) {
     }
 
     fun getRecipesByCategoryId(categoryId: Int): List<RecipeDto> {
-        return cachedRecipes
+        return cachedRecipes.filter { it.categoryId == categoryId}
     }
 
 }

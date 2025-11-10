@@ -18,6 +18,8 @@ import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 fun RecipesApp(darkTheme: Boolean = isSystemInDarkTheme()) {
 
     var currentScreen by remember { mutableStateOf(ScreenId.CATEGORIES) }
+    var selectedCategoryId by remember { mutableStateOf<Int?>(null) }
+    var selectedCategoryTitle by remember { mutableStateOf<String?>(null) }
 
     RecipesAppTheme(darkTheme = darkTheme) {
         Scaffold(
@@ -34,10 +36,22 @@ fun RecipesApp(darkTheme: Boolean = isSystemInDarkTheme()) {
                     FavoritesScreen(innerPadding)
                 }
                 ScreenId.CATEGORIES -> {
-                    CategoriesScreen(innerPadding)
+                    CategoriesScreen(
+                        contentPadding = innerPadding,
+                        onCategoryClick = { categoryId, categoryTitle ->
+                            currentScreen = ScreenId.RECIPES
+                            selectedCategoryId = categoryId
+                            selectedCategoryTitle = categoryTitle
+                        }
+                    )
                 }
                 ScreenId.RECIPES -> {
-                    RecipesScreen(innerPadding)
+                    RecipesScreen(
+                        contentPadding = innerPadding,
+                        categoryId = selectedCategoryId ?: error("Category ID is required"),
+                        categoryTitle = selectedCategoryTitle ?: "",
+                        onRecipeClick = { }
+                    )
                 }
             }
         }

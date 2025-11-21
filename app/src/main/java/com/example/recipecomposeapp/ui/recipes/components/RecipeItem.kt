@@ -1,4 +1,4 @@
-package com.example.recipecomposeapp.ui.categories.components
+package com.example.recipecomposeapp.ui.recipes.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -12,54 +12,44 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.recipecomposeapp.R
 import com.example.recipecomposeapp.core.AppAsyncImage
-import com.example.recipecomposeapp.ui.categories.model.CategoryUiModel
+import com.example.recipecomposeapp.ui.recipes.model.RecipeUiModel
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
-fun CategoryItem(
-    category: CategoryUiModel,
+fun RecipeItem(
+    recipe: RecipeUiModel,
     modifier: Modifier = Modifier,
-    onCategoryClick: (categoryId: Int, categoryTitle: String) -> Unit = { _, _ -> }
-) {
+    onRecipeClick: (Int) -> Unit = { _, -> },
+    ) {
 
     Card(
-        modifier = modifier.clickable { onCategoryClick(category.id, category.title) },
+        modifier = modifier.clickable{ onRecipeClick(recipe.id) },
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
-        )
+        ),
     ) {
         Column {
             AppAsyncImage(
-                imageUrl = category.imageUrl,
+                imageUrl = recipe.imageUrl,
                 previewRes = R.drawable.preview_burger,
-                contentDescription = category.title,
+                contentDescription = recipe.title,
                 modifier = Modifier
-                    .height(130.dp)
+                    .height(100.dp)
                     .fillMaxWidth(),
             )
             Text(
-                text = category.title.uppercase(),
-                modifier = Modifier.padding(start = 8.dp, top = 8.dp),
+                text = recipe.title.uppercase(),
+                modifier = Modifier.padding(8.dp),
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleMedium,
-            )
-            Text(
-                text = category.description,
-                modifier = Modifier.padding(8.dp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                style = MaterialTheme.typography.bodySmall,
-                minLines = 3,
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis,
             )
         }
     }
@@ -67,14 +57,16 @@ fun CategoryItem(
 
 @Preview(showBackground = true)
 @Composable
-fun CategoryItemPreview() {
+fun RecipeItemPreview() {
     RecipesAppTheme {
-        CategoryItem(
-            CategoryUiModel(
+        RecipeItem(
+            RecipeUiModel(
                 id = 0,
-                title = "Бургеры",
-                description = "Рецепты всех популярных видов бургеров",
-                imageUrl = ""
+                title = "Классический бургер с говядиной",
+                imageUrl = "",
+                ingredients = listOf(),
+                method = listOf(),
+                isFavorite = true,
             )
         )
     }

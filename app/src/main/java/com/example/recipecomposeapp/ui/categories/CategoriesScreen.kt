@@ -22,7 +22,10 @@ import com.example.recipecomposeapp.ui.categories.model.toUiModel
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 
 @Composable
-fun CategoriesScreen(contentPadding: PaddingValues) {
+fun CategoriesScreen(
+    contentPadding: PaddingValues,
+    onCategoryClick: (categoryId: Int, categoryTitle: String) -> Unit = { _, _ -> }
+) {
     val bottomPadding = contentPadding.calculateBottomPadding()
 
     val context = LocalContext.current
@@ -56,7 +59,7 @@ fun CategoriesScreen(contentPadding: PaddingValues) {
             ) { category ->
                 CategoryItem(
                     category = category,
-                    onClick = {}
+                    onCategoryClick = onCategoryClick
                 )
             }
         }
@@ -70,6 +73,9 @@ fun CategoriesScreen(contentPadding: PaddingValues) {
 @Composable
 fun CategoriesScreenPreview() {
     RecipesAppTheme {
-        CategoriesScreen(PaddingValues(0.dp))
+        CategoriesScreen(
+            contentPadding = PaddingValues(0.dp),
+            onCategoryClick = {_, _ ->}
+        )
     }
 }

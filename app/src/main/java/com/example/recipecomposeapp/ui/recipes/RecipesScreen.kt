@@ -57,7 +57,7 @@ fun RecipesScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
-            title = categoryTitle,
+            title = "Рецепты",
             backgroundImageRes = R.drawable.bcg_categories
         )
         if (isLoading) {

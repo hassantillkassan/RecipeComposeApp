@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.recipecomposeapp.R
 import com.example.recipecomposeapp.core.AppAsyncImage
 import com.example.recipecomposeapp.ui.categories.model.CategoryUiModel
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
@@ -39,8 +38,7 @@ fun CategoryItem(
     ) {
         Column {
             AppAsyncImage(
-                imageUrl = category.imageUrl,
-                previewRes = R.drawable.preview_burger,
+                model = category.imageUrl,
                 contentDescription = category.title,
                 modifier = Modifier
                     .height(130.dp)
@@ -74,7 +72,7 @@ fun CategoryItemPreview() {
                 id = 0,
                 title = "Бургеры",
                 description = "Рецепты всех популярных видов бургеров",
-                imageUrl = ""
+                imageUrl = "",
             )
         )
     }

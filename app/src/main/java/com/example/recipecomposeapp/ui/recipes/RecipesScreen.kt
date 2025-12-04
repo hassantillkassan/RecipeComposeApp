@@ -33,7 +33,7 @@ fun RecipesScreen(
     contentPadding: PaddingValues,
     categoryId: Int?,
     categoryTitle: String,
-    onRecipeClick: (Int) -> Unit,
+    onRecipeClick: (Int, RecipeUiModel) -> Unit,
 ) {
     val bottomPadding = contentPadding.calculateBottomPadding()
 
@@ -58,7 +58,7 @@ fun RecipesScreen(
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
             title = "Рецепты",
-            backgroundImageRes = R.drawable.bcg_categories
+            backgroundImageModel = R.drawable.bcg_categories
         )
         if (isLoading) {
             Box(
@@ -105,7 +105,7 @@ fun RecipesScreenPreview() {
             contentPadding = PaddingValues(0.dp),
             categoryId = 0,
             categoryTitle = "Рецепты",
-            onRecipeClick = {}
+            onRecipeClick = { _, _ -> }
         )
     }
 }

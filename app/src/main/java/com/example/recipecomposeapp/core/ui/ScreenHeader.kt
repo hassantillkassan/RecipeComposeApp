@@ -1,7 +1,5 @@
 package com.example.recipecomposeapp.core.ui
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,13 +15,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.recipecomposeapp.core.AppAsyncImage
 
 @Composable
 fun ScreenHeader(
     title: String,
-    @DrawableRes backgroundImageRes: Int,
+    backgroundImageModel: Any?,
     modifier: Modifier = Modifier,
     isFavorite: Boolean? = null,
     onFavoriteClick: () -> Unit = {}
@@ -33,8 +31,8 @@ fun ScreenHeader(
             .fillMaxWidth()
             .height(224.dp)
     ) {
-        Image(
-            painter = painterResource(backgroundImageRes),
+        AppAsyncImage(
+            model = backgroundImageModel,
             contentDescription = title,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
@@ -47,7 +45,7 @@ fun ScreenHeader(
             Surface(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
-                    .padding(start = 16.dp, bottom = 16.dp),
+                    .padding(start = 16.dp, bottom = 16.dp, end = 16.dp),
                 shape = RoundedCornerShape(8.dp),
                 color = MaterialTheme.colorScheme.background
             ) {

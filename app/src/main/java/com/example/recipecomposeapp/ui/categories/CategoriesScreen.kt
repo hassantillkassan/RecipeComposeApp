@@ -39,7 +39,7 @@ fun CategoriesScreen(
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
             title = "Категория",
-            backgroundImageRes = R.drawable.bcg_categories,
+            backgroundImageModel = R.drawable.bcg_categories,
         )
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),

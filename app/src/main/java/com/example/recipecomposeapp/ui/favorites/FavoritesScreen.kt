@@ -20,7 +20,7 @@ fun FavoritesScreen(contentPadding: PaddingValues) {
     Column(modifier = Modifier.fillMaxSize()) {
         ScreenHeader(
             title = "Избранное",
-            backgroundImageRes = R.drawable.bcg_favorites
+            backgroundImageModel = R.drawable.bcg_favorites
         )
         Box(
             modifier = Modifier
@@ -33,7 +33,10 @@ fun FavoritesScreen(contentPadding: PaddingValues) {
     }
 }
 
-@Preview
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+)
 @Composable
 fun FavoritesScreenPreview() {
     RecipesAppTheme {

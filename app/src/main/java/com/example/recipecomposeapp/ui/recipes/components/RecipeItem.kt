@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.recipecomposeapp.R
 import com.example.recipecomposeapp.core.AppAsyncImage
 import com.example.recipecomposeapp.ui.recipes.model.RecipeUiModel
 import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
@@ -23,11 +22,11 @@ import com.example.recipecomposeapp.ui.theme.RecipesAppTheme
 fun RecipeItem(
     recipe: RecipeUiModel,
     modifier: Modifier = Modifier,
-    onRecipeClick: (Int) -> Unit = { _, -> },
+    onRecipeClick: (Int, RecipeUiModel) -> Unit = { _, _ -> },
     ) {
 
     Card(
-        modifier = modifier.clickable{ onRecipeClick(recipe.id) },
+        modifier = modifier.clickable{ onRecipeClick(recipe.id, recipe) },
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
@@ -38,8 +37,7 @@ fun RecipeItem(
     ) {
         Column {
             AppAsyncImage(
-                imageUrl = recipe.imageUrl,
-                previewRes = R.drawable.preview_burger,
+                model = recipe.imageUrl,
                 contentDescription = recipe.title,
                 modifier = Modifier
                     .height(100.dp)

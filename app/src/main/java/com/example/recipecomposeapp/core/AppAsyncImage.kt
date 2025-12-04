@@ -1,6 +1,5 @@
 package com.example.recipecomposeapp.core
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,8 +15,7 @@ import com.example.recipecomposeapp.R
 
 @Composable
 fun AppAsyncImage(
-    imageUrl: String,
-    @DrawableRes previewRes: Int,
+    model: Any?,
     contentDescription: String,
     modifier: Modifier = Modifier,
     placeholder: Painter = painterResource(R.drawable.img_placeholder),
@@ -27,16 +25,25 @@ fun AppAsyncImage(
     val isPreview = LocalInspectionMode.current
 
     if (isPreview) {
-        Image(
-            painter = painterResource(previewRes),
-            contentDescription = contentDescription,
-            modifier = modifier,
-            contentScale = contentScale,
-        )
+        if (model is Int) {
+            Image(
+                painter = painterResource(model),
+                contentDescription = contentDescription,
+                modifier = modifier,
+                contentScale = contentScale,
+            )
+        } else {
+            Image(
+                painter = painterResource(R.drawable.preview_burger),
+                contentDescription = contentDescription,
+                modifier = modifier,
+                contentScale = contentScale,
+            )
+        }
     } else {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(imageUrl)
+                .data(model)
                 .crossfade(true)
                 .build(),
             contentDescription = contentDescription,
